@@ -1,0 +1,10 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<h1>Confirmer la suppression du livre</h1>
+<p>Voulez-vous vraiment supprimer le livre "{{ livre.nom }}" ?</p>
+<form method="POST">
+    {% csrf_token %}
+    <a href="{% url 'delete' livre.id %}" onclick="return confirm('Voulez-vous vraiment supprimer le livre {{ livre.nom }} ?')">Supprimer</a>
+</form>
+{% endblock %}

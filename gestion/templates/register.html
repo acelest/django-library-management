@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <h1>Inscription 📚 </h1>
+    <br>
+    <form action="" method="POST" id="register" enctype="multipart/form-data">
+        {% csrf_token %}
+       
+        {{ form.as_p }}
+       
+
+        <button type="submit" class="btn btn-danger">S'inscrire</button>
+    </form>
+</div>
+{% endblock %}

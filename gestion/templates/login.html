@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Login 📚</h1>
+  <div class="col-md-6 offset-md-3">
+    <!-- <form method="POST" id="login" class="needs-validation" action="{% url 'login_user' %}"> -->
+      <form action="" method="POST" id="" enctype="multipart/form-data">
+        {% csrf_token %}
+       
+        {{ form.as_p }}
+  
+      <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
+  </div>
+{% endblock %}
+
+<!-- j'ai pas pu gerer la partie connexion avec le jquery mais l'inscription -->

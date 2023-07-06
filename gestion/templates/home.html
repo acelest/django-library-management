@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<h1>Liste des livres</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Auteur</th>
+            <th>Nombre de pages</th>
+            <th>Photo du livre</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for livre in livres %}
+        <tr>
+            <td>{{ livre.nom }}</td>
+            <td>{{ livre.auteur }}</td>
+            <td>{{ livre.pages }}</td>
+            <td><img src="{{ livre.image.url }}" class="img-thumbnail img-fluid"  width="100" alt="Photo du livre"></td>
+            <td>
+                <a href="{% url 'supprimer' livre.id %}" onclick="return confirm('Voulez-vous vraiment supprimer le livre {{ livre.nom }} ?')">Supprimer</a>
+                <a href="{% url 'modifier' livre.id %}">Modifier</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<p>Veuillez vous connecter</p>
+{% endif %}
+{% endblock %}

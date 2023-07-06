@@ -1,0 +1,18 @@
+{% if livres %}
+    <h2>Résultats de la recherche</h2>
+    <div class="row">
+        {% for livre in livres %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ livre.image.url }}" width="20" class="card-img-top" alt="Photo du livre">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ livre.nom }}</h5>
+                        <p class="card-text">Auteur : {{ livre.auteur }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Aucun livre trouvé.</p>
+{% endif %}
